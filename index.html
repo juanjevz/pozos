@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>PROYECTO</title>   
+	
+	<!-- Hoja de estilos CSS de Leaflet -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>	
+	<!-- Biblioteca JS de Leaflet -->
+	<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>	
+	<!-- Complemento Leaflet-providers -->
+	<script src="js/leaflet-providers.js"></script>	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.2/leaflet.css">
+	<!-- <script src="js/leaflet.js"></script>	-->
+	<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.2/leaflet.js"></script>-->
+	<!-- Hoja de estilos CSS adicionales -->
+	<link rel="stylesheet" href="css/estilos.css"/>	
+
+	<!-- En HTML: enlace a Font Awesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+	integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+	crossorigin="anonymous" />	
+	
+	<!-- Enlace a biblioteca JQuery -->
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	crossorigin="anonymous">
+</script>	
+</head>
+
+<body>
+<style>
+	body {
+		background:url("img/agua.jpg") no-repeat center center; min-height:100%; background-size:cover;
+	}	
+
+</style>
+
+<h1>Los pozos en Costa Rica</h1>
+	<nav>
+		<ul>
+			<li><a href="index.html"><em>Página Principal</em></a></li>						
+			<li><a href="tabla.html"><em>Tabla de Pozos</em></a></li>
+		</ul>
+	</nav>	
+En Costa Rica existen dos tipos de pozos, los perforados y los excavados. A continuación se presenta una breve explicación sobre los mismos. 
+
+
+ <!-- Filtrando datos geográficos en formato GeoJSON con Leaflet......................................................................DE AQUI INICIA -->
+<body onload="myFunction()">
+
+
+<script src="js/scripts.js"></script>
+
+
+<div id ="map"> </div> 
+
+<!-- Filtrando datos geográficos en formato GeoJSON con Leaflet......................................................................FINALIZA AQUI-->
+
+
+ <!-- Complemento Leaflet-choropleth JUAN le falta la barra de colores......................................................................DE AQUI INICIA--> 
+<script src="js/choropleth.js"></script>
+
+ <!-- Complemento Leaflet-choropleth JUAN le falta la barra de colores......................................................................DE AQUI FINALIZA -->
+
+
+
+<div class="row">
+	<div class="column">
+		<h3> Ubicación</h3>
+		<div id="panel" style = "margin-left:0px; background-color:#b1c8d1;opacity: 0.7;">
+			<label>Seleccionar tipo de pozo</label>
+			<select id="estilo" onchange="estiloSelect()">
+			<option value="Perforado" >Perforado</option>
+			<option value="Artesanal">Artesanal</option>
+			</select>
+		</div>	  
+		<div id="mapid"></div>
+		<!-- Controles para la opacidad de la capa de elevación -->	
+		<h5>Opacidad de la capa de elevación: <span id="span-opacity">0.5</span></h5>
+		<input type='range' id='sld-opacity' min='0' max='1' step='0.1' value='0.5' onchange='updateOpacity();'>
+	</div> 
+	
+	<!-- Elemento div para contener el mapa -->
+	<div class="column">
+		
+		
+	
+		<!-- Código principal en JS -->
+		<script src="js/scripts.js"></script>
+
+		
+  
+		<h2>Pozos <em>Perforados</em></h2>
+		<em>Los <a href="https://es.wikipedia.org/wiki/Pozo">pozos</a> perforados</em> son un tipo de estructuras 
+		que utilizan <a href="https://www.monografias.com/trabajos93/equipos-perforacion/equipos-perforacion.shtml"><em>máquineas de perforación</em></a>, 
+		comúnmente para construcción del agujero para la extracción de <strong>agua subterránea </strong> u otros materiales como por ejemplo el petróleo. 
+		Se utiliza el término "perforado" ya que requiere precisamente de dicha máquina para crear el agujero de extracción. Por lo general su profundidad
+		es de varios metros para lo cual se utiliza bombas sumergibles para enviar el líquido hasta la superficie (<cite><a href=https://patents.google.com/patent/US3472168A/en"> Inoue, M.; Matsuzaka, T.
+		(1968).- US3472168A Automatic submersible pump</a></cite>)
+		<br><br>
+		<h2>Pozos <em>Artesanales</em></h2>
+		<em>Los <a href="https://es.wikipedia.org/wiki/Pozo">pozos</a> perforados</em> son un tipo de estructuras 
+		que utilizan <a href="https://www.monografias.com/trabajos93/equipos-perforacion/equipos-perforacion.shtml"><em>máquineas de perforación</em></a>, 
+		comúnmente para construcción del agujero para la extracción de <strong>agua subterránea </strong> u otros materiales como por ejemplo el petróleo. 
+		Se utiliza el término "perforado" ya que requiere precisamente de dicha máquina para crear el agujero de extracción. Por lo general su profundidad
+		es de varios metros para lo cual se utiliza bombas sumergibles para enviar el líquido hasta la superficie (<cite><a href=https://patents.google.com/patent/US3472168A/en"> Inoue, M.; Matsuzaka, T.
+		(1968).- US3472168A Automatic submersible pump</a></cite>)
+		<br><br>
+		En Costa Rica se han realizado de este tipo de perforaciones desde los años sesenta para lo cual se requiere de los siguientes permisos, los cuales deben ser presentados
+		ante la Dirección de Agua <a href="http://www.da.go.cr/">(DA)</a>  del Ministerio de Ambiente y Energía <a href="https://www.minae.go.cr/">(MINAE)</a> de Costa Rica. 
+		Las cuencas de Sardinal y El Coco Ocotal poseen ambos tipos de pozos para lo cual aparece el siguiente visor con mapa que permite desplegar información básica de la cuenca. 
+		<ul>
+		<li><a href="http://www.da.go.cr/tramites-presenciales-en-ventanilla/"><em>Registro de empresa de perforación <em></a></li> 
+		<li><a href="http://www.da.go.cr/tramites-presenciales-en-ventanilla/"><em>Registro de máquina perforadora<em></a></li> 
+		<li><a href="http://www.da.go.cr/tramites-presenciales-en-ventanilla/"><em>Permiso de perforación </em></a></li>	  
+		<li><a href="http://www.da.go.cr/tramites-presenciales-en-ventanilla/"><em>Concesión de agua ante la Dirección de Agua del MINAE<em></a></li>		
+	</div> 
+	A continuación se presenta una imagen con el diagrama oficial de la cuenca Sardinal como referencia provisto por SENARA para su descarga. <br><br>
+	<a href="img/cuenca_sardinal.jpg"><img src="img/cuenca_sardinal.jpg" alt="Cuenca Sardinal" height="200"></a>
+</div> 
+</body>
+</html>
+
+
+
+
+		
